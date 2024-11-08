@@ -1,28 +1,20 @@
 package com.epam.reportportal.tests;
 
+
 import com.epam.reportportal.pages.HomePage;
 import com.epam.reportportal.pages.LoginPage;
-import com.epam.reportportal.utils.DriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
+import com.epam.reportportal.utils.BaseTest;
+import org.testng.annotations.Test;
 
-public class LoginTest {
+public class LoginTest extends BaseTest {
 
-    private HomePage homePage;
-    private LoginPage loginPage;
+    protected HomePage homePage;
+    protected LoginPage loginPage;
 
-    @BeforeEach
-    public void setUp() {
-        WebDriver webDriver = DriverManager.getDriver();
+    @Override
+    protected void setUpExtended() {
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
-    }
-
-    @AfterEach
-    public void tearDownDriver() {
-        DriverManager.tearDownDriver();
     }
 
     @Test
