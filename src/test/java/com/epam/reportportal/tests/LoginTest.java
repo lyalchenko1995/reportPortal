@@ -4,6 +4,8 @@ package com.epam.reportportal.tests;
 import com.epam.reportportal.pages.HomePage;
 import com.epam.reportportal.pages.LoginPage;
 import com.epam.reportportal.utils.BaseTest;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
@@ -18,9 +20,13 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testLogin() {
-        homePage.openHomePage();
+    public void testLogin() throws InterruptedException {
+        logger.info("Test log4j - Open home page");
+        loginPage.openHomePage();
+        logger.info("Test log4j - Login");
         loginPage.login();
-        System.out.println("passed");
+        logger.info("Test log4j - Sleep");
+        Thread.sleep(3000);
+        logger.info("Test log4j - Test passed");
     }
 }

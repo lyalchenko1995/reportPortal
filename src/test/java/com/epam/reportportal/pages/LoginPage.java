@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
+    public WebDriver webDriver;
+
     @FindBy(xpath = "//input[@name='login']")
     private WebElement loginField;
 
@@ -16,6 +18,7 @@ public class LoginPage {
     private WebElement loginButton;
 
     public LoginPage(WebDriver webDriver) {
+        this.webDriver = webDriver;
         PageFactory.initElements(webDriver, this);
     }
 
@@ -31,9 +34,17 @@ public class LoginPage {
         return loginButton;
     }
 
+    public void openHomePage() {
+        webDriver.manage().window().maximize();
+//        webDriver.get(System.getenv("ENV_URL"));
+        webDriver.get("http://localhost:8080/ui/#login");
+    }
+
     public void login() {
-        getLoginField().sendKeys("testLogin");
-        getPasswordField().sendKeys("testPassword");
+//        getLoginField().sendKeys(System.getenv("USER_LOGIN"));
+//        getPasswordField().sendKeys(System.getenv("USER_PASSWORD"));
+        getLoginField().sendKeys("superadmin");
+        getPasswordField().sendKeys("erebus");
         getLoginButton().click();
     }
 }
