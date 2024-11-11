@@ -1,6 +1,5 @@
-package com.epam.reportportal.utils;
+package com.epam.reportportal.tests;
 
-import com.epam.reportportal.tests.LoginTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

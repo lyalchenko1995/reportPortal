@@ -3,9 +3,6 @@ package com.epam.reportportal.tests;
 
 import com.epam.reportportal.pages.HomePage;
 import com.epam.reportportal.pages.LoginPage;
-import com.epam.reportportal.utils.BaseTest;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
