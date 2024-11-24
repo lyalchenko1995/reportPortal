@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All">
+<suite name="All" parallel="methods" thread-count="2">
     <test name="All">
         <packages>
-            <package name="com.epam.reportportal.tests.*"/>
+            <package name="com.epam.reportportal.tests.testNG.TestNgTest"/>
         </packages>
     </test>
 </suite>

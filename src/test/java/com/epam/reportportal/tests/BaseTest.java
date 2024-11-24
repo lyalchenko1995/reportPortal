@@ -1,36 +1,27 @@
 package com.epam.reportportal.tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.epam.reportportal.drivermanager.Browser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import static com.epam.reportportal.configurations.Configuration.BASE_URL;
+import static com.epam.reportportal.utils.BrowserUtils.openUrl;
+
 public abstract class BaseTest {
-    protected WebDriver webDriver;
-    protected static final Logger logger = LogManager.getLogger(BaseTest.class);
+    protected static final Logger LOGGER = LogManager.getLogger(BaseTest.class);
 
     @BeforeMethod
-    public void setUp() {
-        webDriver = createDriver();
+    public void init() {
+        openUrl(BASE_URL);
         setUpExtended();
     }
 
     protected abstract void setUpExtended();
 
     @AfterMethod
-    public void tearDown() {
-        webDriver.quit();
-    }
-
-    private static WebDriver createDriver() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--incognito");
-        options.addArguments("--remote-allow-origins=*");
-        return new ChromeDriver(options);
+    public void close() {
+        Browser.close();
     }
 }

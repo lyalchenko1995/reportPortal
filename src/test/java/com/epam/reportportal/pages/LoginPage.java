@@ -1,12 +1,9 @@
 package com.epam.reportportal.pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
-    public WebDriver webDriver;
+public class LoginPage extends BasePage {
 
     @FindBy(xpath = "//input[@name='login']")
     private WebElement loginField;
@@ -16,11 +13,6 @@ public class LoginPage {
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement loginButton;
-
-    public LoginPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-        PageFactory.initElements(webDriver, this);
-    }
 
     public WebElement getLoginField() {
         return loginField;
@@ -32,12 +24,6 @@ public class LoginPage {
 
     public WebElement getLoginButton() {
         return loginButton;
-    }
-
-    public void openHomePage() {
-        webDriver.manage().window().maximize();
-//        webDriver.get(System.getenv("ENV_URL"));
-        webDriver.get("http://localhost:8080/ui/#login");
     }
 
     public void login() {
