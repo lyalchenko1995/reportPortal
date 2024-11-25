@@ -18,6 +18,7 @@
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <log4j-api.version>2.17.1</log4j-api.version>
         <junit-jupiter-api.version>5.11.3</junit-jupiter-api.version>
+        <fmt.plugin.version>2.23</fmt.plugin.version>
     </properties>
     <dependencies>
 
@@ -96,11 +97,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-<!--                    <parallel>classes</parallel>-->
-<!--                    <threadCount>4</threadCount> &lt;!&ndash; Указываете нужное число потоков &ndash;&gt;-->
-<!--                    <useUnlimitedThreads>false</useUnlimitedThreads>-->
                     <suiteXmlFiles>
-<!--                        <suiteXmlFile>${project.basedir}/src/test/resources/runners/${suite.xml.file}</suiteXmlFile>-->
                         <suiteXmlFile>src/test/resources/runners/runner.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
@@ -120,23 +117,19 @@
                 <artifactId>allure-maven</artifactId>
                 <version>${allure-maven}</version>
             </plugin>
+            <plugin>
+                <groupId>com.spotify.fmt</groupId>
+                <artifactId>fmt-maven-plugin</artifactId>
+                <version>${fmt.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
-<!--        <testResources>-->
-<!--            <testResource>-->
-<!--                <directory>src/test/resources</directory>-->
-<!--            </testResource>-->
-<!--        </testResources>-->
     </build>
-
-    <profiles>
-        <profile>
-            <id>All</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <suite.xml.file>runner.xml</suite.xml.file>
-            </properties>
-        </profile>
-    </profiles>
 </project>

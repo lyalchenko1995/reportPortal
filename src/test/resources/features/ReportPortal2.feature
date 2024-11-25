@@ -1,10 +1,10 @@
-Feature: Report Portal
+Feature: Feature2
 
   Background:
     Given open Report portal page
 
   @Smoke
-  Scenario Outline: test2
+  Scenario Outline: Scenario2
     When open launches page
     Then <text> is not displayed in Total column
     Examples:
@@ -12,3 +12,5 @@ Feature: Report Portal
       | total11 |
       | total22 |
       | total33 |
+      | total44 |
+      | total55 |

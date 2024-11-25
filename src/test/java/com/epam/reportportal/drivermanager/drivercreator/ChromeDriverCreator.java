@@ -9,19 +9,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ChromeDriverCreator implements DriverCreator {
-    private static final Logger LOGGER = LogManager.getLogger(ChromeDriverCreator.class);
+  private static final Logger LOGGER = LogManager.getLogger(ChromeDriverCreator.class);
 
-    public WebDriver createDriver() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--remote-allow-origins=*");//почему без этого не работало
-        options.addArguments("start-maximized");
-        options.setCapability("platformName", Platform.WINDOWS);
-        options.addArguments("--ignore-certificate-errors");
-        options.addArguments("--incognito");
-        options.addArguments("--start-maximized");
+  public WebDriver createDriver() {
+    WebDriverManager.chromedriver().setup();
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("start-maximized");
+    options.setCapability("platformName", Platform.WINDOWS);
+    options.addArguments("--ignore-certificate-errors");
+    options.addArguments("--incognito");
+    options.addArguments("--start-maximized");
 
-        LOGGER.info("Chrome options: {}", options);
-        return new ChromeDriver(options);
-    }
+    LOGGER.info("Chrome options: {}", options);
+    return new ChromeDriver(options);
+  }
 }
