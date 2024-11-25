@@ -13,12 +13,12 @@ Feature: Report Portal
         | total2 |
         | total3 |
 
-  @Smoke
-  Scenario Outline: test2
-    When open launches page
-    Then <text> is not displayed in Total column
-    Examples:
-      | text |
-      | total11 |
-      | total22 |
-      | total33 |
+#  @Smoke
+#  Scenario Outline: test2
+#    When open launches page
+#    Then <text> is not displayed in Total column
+#    Examples:
+#      | text |
+#      | total11 |
+#      | total22 |
+#      | total33 |

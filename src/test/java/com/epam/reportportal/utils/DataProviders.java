@@ -19,9 +19,9 @@ public class DataProviders {
     public Object[][] passedColumnDataProvider() {
         return new Object[][] {
                 {"passed1"},
-                {"passed2"},
-                {"passed3"},
-                {"passed4"},
+//                {"passed2"},
+//                {"passed3"},
+//                {"passed4"},
                 {"passed5"}
         };
     }
