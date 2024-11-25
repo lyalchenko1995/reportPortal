@@ -10,7 +10,7 @@
 
     <properties>
         <testng>7.7.0</testng>
-        <selenium-java>4.6.0</selenium-java>
+        <selenium-java>4.26.0</selenium-java>
         <allure-maven>2.12.0</allure-maven>
         <aspectj.version>1.9.21</aspectj.version>
         <webdrivermanager.version>5.9.2</webdrivermanager.version>

@@ -14,7 +14,7 @@ public class ChromeDriverCreator implements DriverCreator {
     public WebDriver createDriver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");//почему без этого не работало
+//        options.addArguments("--remote-allow-origins=*");//почему без этого не работало
         options.addArguments("start-maximized");
         options.setCapability("platformName", Platform.WINDOWS);
         options.addArguments("--ignore-certificate-errors");

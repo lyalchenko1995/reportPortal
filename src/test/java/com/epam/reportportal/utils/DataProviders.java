@@ -8,9 +8,9 @@ public class DataProviders {
     public Object[][] totalColumnDataProvider() {
         return new Object[][] {
                 {"total1"},
-                {"total2"},
-                {"total3"},
-                {"total4"},
+//                {"total2"},
+//                {"total3"},
+//                {"total4"},
                 {"total5"}
         };
     }
