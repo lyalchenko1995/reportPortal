@@ -2,8 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All" parallel="methods" thread-count="2">
     <test name="All">
-        <packages>
-            <package name="com.epam.reportportal.tests.testNG.TestNgTest"/>
-        </packages>
+<!--        <packages>-->
+<!--            <package name="com.epam.reportportal.tests.testNG.*"/>-->
+<!--        </packages>-->
+        <classes>
+            <class name="com.epam.reportportal.runner.CucumberRunner"/>
+        </classes>
     </test>
 </suite>

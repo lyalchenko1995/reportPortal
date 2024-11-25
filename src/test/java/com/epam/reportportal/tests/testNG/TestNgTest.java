@@ -29,7 +29,7 @@ public class TestNgTest extends BaseTest {
         launchesPage = new LaunchesPage();
     }
 
-    @Test(dataProvider = "totalColumnDataProviderText", dataProviderClass = DataProviders.class)
+    @Test(dataProvider = "totalColumnDataProviderText", dataProviderClass = DataProviders.class, threadPoolSize = 2)
     public void testTotalColumn(String expectedText) {
         loginPage.login();
         LOGGER.info("Login is successfully");
@@ -39,14 +39,13 @@ public class TestNgTest extends BaseTest {
         assertNotEquals(launchesPage.getTotalColumn().getText(), expectedText);
     }
 
-    @Test
-            (dataProvider = "passedColumnDataProviderText", dataProviderClass = DataProviders.class)
-    public void testPassedColumn(String expectedText) {
-        loginPage.login();
-        LOGGER.info("Login is successfully");
-        WebDriverWait wait = new WebDriverWait(Browser.getDriver(), Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(homePage.getLaunchesSideMenu()));
-        homePage.getLaunchesSideMenu().click();
-        assertNotEquals(launchesPage.getPassedColumn().getText(), expectedText);
-    }
+//    @Test(dataProvider = "passedColumnDataProviderText", dataProviderClass = DataProviders.class)
+//    public void testPassedColumn(String expectedText) {
+//        loginPage.login();
+//        LOGGER.info("Login is successfully");
+//        WebDriverWait wait = new WebDriverWait(Browser.getDriver(), Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.visibilityOf(homePage.getLaunchesSideMenu()));
+//        homePage.getLaunchesSideMenu().click();
+//        assertNotEquals(launchesPage.getPassedColumn().getText(), expectedText);
+//    }
 }

@@ -79,11 +79,13 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
             <version>6.8.1</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>6.8.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -94,8 +96,12 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+<!--                    <parallel>classes</parallel>-->
+<!--                    <threadCount>4</threadCount> &lt;!&ndash; Указываете нужное число потоков &ndash;&gt;-->
+<!--                    <useUnlimitedThreads>false</useUnlimitedThreads>-->
                     <suiteXmlFiles>
-                        <suiteXmlFile>${project.basedir}/src/test/resources/runners/${suite.xml.file}</suiteXmlFile>
+<!--                        <suiteXmlFile>${project.basedir}/src/test/resources/runners/${suite.xml.file}</suiteXmlFile>-->
+                        <suiteXmlFile>src/test/resources/runners/runner.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -115,6 +121,11 @@
                 <version>${allure-maven}</version>
             </plugin>
         </plugins>
+<!--        <testResources>-->
+<!--            <testResource>-->
+<!--                <directory>src/test/resources</directory>-->
+<!--            </testResource>-->
+<!--        </testResources>-->
     </build>
 
     <profiles>
