@@ -100,6 +100,12 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/runners/runner.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <properties>
+                        <property>
+                            <name>dataproviderthreadcount</name>
+                            <value>2</value>
+                        </property>
+                    </properties>
                 </configuration>
             </plugin>
             <plugin>
@@ -108,8 +114,8 @@
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
-                    <source>21</source>
-                    <target>21</target>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
             <plugin>
