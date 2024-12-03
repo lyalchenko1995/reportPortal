@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All">
-    <test name="All">
-        <packages>
-            <package name="com.epam.reportportal.tests.*"/>
-        </packages>
+<suite name="Suite ALL" verbose="1" parallel="tests" thread-count="3">
+    <test name="test2">
+        <parameter name="featureFile" value="src/test/resources/features/ReportPortal2.feature"/>
+        <classes>
+            <class name="com.epam.reportportal.runner.CucumberRunner"/>
+        </classes>
+    </test>
+    <test name="test1">
+        <parameter name="featureFile" value="src/test/resources/features/ReportPortal1.feature"/>
+        <classes>
+            <class name="com.epam.reportportal.runner.CucumberRunner"/>
+        </classes>
     </test>
 </suite>

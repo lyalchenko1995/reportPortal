@@ -1,11 +1,14 @@
 package com.epam.reportportal.pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class HomePage {
+public class HomePage extends BasePage {
 
-    public HomePage(WebDriver webDriver) {
-        PageFactory.initElements(webDriver, this);
-    }
+  @FindBy(xpath = "(//div[@class='sidebarButton__sidebar-nav-btn--gbV_N'])[2]")
+  public WebElement launchesSideMenu;
+
+  public WebElement getLaunchesSideMenu() {
+    return launchesSideMenu;
+  }
 }
