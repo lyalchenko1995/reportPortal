@@ -19,6 +19,9 @@
         <log4j-api.version>2.17.1</log4j-api.version>
         <junit-jupiter-api.version>5.11.3</junit-jupiter-api.version>
         <fmt.plugin.version>2.23</fmt.plugin.version>
+        <selenide.version>7.5.1</selenide.version>
+        <rest-assured.version>5.4.0</rest-assured.version>
+        <jackson.version>2.17.1</jackson.version>
     </properties>
     <dependencies>
 
@@ -54,6 +57,13 @@
             <artifactId>selenium-java</artifactId>
             <version>${selenium-java}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
@@ -88,6 +98,19 @@
             <version>6.8.1</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -98,7 +121,7 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/runners/runner.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/runners/testNGRunner.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <properties>
                         <property>
