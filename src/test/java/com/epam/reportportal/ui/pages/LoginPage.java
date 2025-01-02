@@ -26,11 +26,5 @@ public class LoginPage extends BasePage {
     return loginButton;
   }
 
-  public void login() {
-    //    getLoginField().sendKeys(System.getenv("USER_LOGIN"));
-    //    getPasswordField().sendKeys(System.getenv("USER_PASSWORD"));
-    getLoginField().sendKeys("superadmin");
-    getPasswordField().sendKeys("erebus");
-    getLoginButton().click();
-  }
+  // initialization from BasePage
 }

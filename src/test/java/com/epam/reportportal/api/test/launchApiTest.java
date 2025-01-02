@@ -1,11 +1,11 @@
 package com.epam.reportportal.api.test;
 
-import static com.epam.reportportal.api.objectbuilder.LaunchBuilder.buildLaunchDto;
+import static com.epam.reportportal.api.apiobject.objectbuilder.LaunchBuilder.buildLaunchDto1;
 
 import com.epam.reportportal.api.step.LaunchStep;
 import org.testng.annotations.Test;
 
-public class LaunchApiTest {
+public class launchApiTest extends BaseTest {
 
   LaunchStep launchStep = new LaunchStep();
 
@@ -27,7 +27,7 @@ public class LaunchApiTest {
   //
   @Test(description = "Positive POST test")
   public void postLaunchPositiveTest() {
-    int id = launchStep.createLaunch(buildLaunchDto());
+    int id = launchStep.createLaunch(buildLaunchDto1());
     launchStep.getLaunchById(id);
   }
 

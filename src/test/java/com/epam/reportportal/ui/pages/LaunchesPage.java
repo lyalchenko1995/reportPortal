@@ -7,16 +7,16 @@ import org.openqa.selenium.support.FindBy;
 public class LaunchesPage extends BasePage {
 
   @FindBy(xpath = "//div[@data-id]")
-  public List<WebElement> launchesList;
+  private List<WebElement> launchesList;
 
   @FindBy(xpath = "//div[@class='headerCell__title-container--cTbKe']//span[text()='total']")
-  public WebElement totalColumn;
+  private WebElement totalColumn;
 
   @FindBy(xpath = "//div[@class='headerCell__title-container--cTbKe']//span[text()='passed']")
-  public WebElement passedColumn;
+  private WebElement passedColumn;
 
   @FindBy(xpath = "//div[@class='headerCell__title-container--cTbKe']//span[text()='failed']")
-  public WebElement failedColumn;
+  private WebElement failedColumn;
 
   public WebElement getFailedColumn() {
     return failedColumn;
@@ -33,4 +33,6 @@ public class LaunchesPage extends BasePage {
   public WebElement getTotalColumn() {
     return totalColumn;
   }
+
+  // initialization from BasePage
 }

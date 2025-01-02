@@ -1,4 +1,4 @@
-package com.epam.reportportal.api;
+package com.epam.reportportal.api.apiobject;
 
 public class Endpoints {
   public static final String BASE_URL = "http://localhost:8080/api/v1/";
