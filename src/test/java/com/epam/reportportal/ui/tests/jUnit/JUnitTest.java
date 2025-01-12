@@ -7,6 +7,7 @@ import com.epam.reportportal.ui.pages.LaunchesPage;
 import com.epam.reportportal.ui.pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -28,6 +29,7 @@ public class JUnitTest {
   @BeforeEach
   public void setUp() {
     webDriver = createDriver();
+    webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS); // implicit wait
     loginPage = new LoginPage();
     homePage = new HomePage();
     launchesPage = new LaunchesPage();
@@ -49,7 +51,11 @@ public class JUnitTest {
   @ParameterizedTest
   @ValueSource(strings = {"failed1", "failed2", "failed3", "failed4", "failed5"})
   public void testFailedColumn(String expectedText) {
-    loginPage.login();
+    //    login
+    loginPage.getLoginField().sendKeys("superadmin");
+    loginPage.getPasswordField().sendKeys("erebus");
+    loginPage.getLoginButton().click();
+    //
     WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
     wait.until(ExpectedConditions.visibilityOf(homePage.getLaunchesSideMenu()));
     homePage.getLaunchesSideMenu().click();

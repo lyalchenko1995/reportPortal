@@ -6,9 +6,11 @@ import org.openqa.selenium.support.FindBy;
 public class HomePage extends BasePage {
 
   @FindBy(xpath = "(//div[@class='sidebarButton__sidebar-nav-btn--gbV_N'])[2]")
-  public WebElement launchesSideMenu;
+  private WebElement launchesSideMenu;
 
   public WebElement getLaunchesSideMenu() {
     return launchesSideMenu;
   }
+
+  // initialization from BasePage
 }

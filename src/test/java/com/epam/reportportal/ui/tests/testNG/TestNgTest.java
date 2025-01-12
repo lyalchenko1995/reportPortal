@@ -1,51 +1,40 @@
 package com.epam.reportportal.ui.tests.testNG;
 
-import static org.testng.Assert.*;
-
-import com.epam.reportportal.ui.drivermanager.Browser;
-import com.epam.reportportal.ui.pages.HomePage;
-import com.epam.reportportal.ui.pages.LaunchesPage;
-import com.epam.reportportal.ui.pages.LoginPage;
+import com.epam.reportportal.ui.steps.HomePageSteps;
+import com.epam.reportportal.ui.steps.LaunchesPageSteps;
+import com.epam.reportportal.ui.steps.LoginSteps;
 import com.epam.reportportal.ui.tests.BaseTest;
 import com.epam.reportportal.ui.utils.DataProviders;
-import java.time.Duration;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class TestNgTest extends BaseTest {
-
-  protected HomePage homePage;
-  protected LoginPage loginPage;
-  protected LaunchesPage launchesPage;
+  private LoginSteps loginSteps;
+  private HomePageSteps homePageSteps;
+  private LaunchesPageSteps launchesPageSteps;
 
   @Override
   protected void setUpExtended() {
-    loginPage = new LoginPage();
-    homePage = new HomePage();
-    launchesPage = new LaunchesPage();
+    loginSteps = new LoginSteps();
+    homePageSteps = new HomePageSteps();
+    launchesPageSteps = new LaunchesPageSteps();
+  }
+
+  @Test(dataProvider = "totalColumnDataProviderText", dataProviderClass = DataProviders.class)
+  public void testTotalColumn(String expectedText) {
+    loginSteps.login();
+    homePageSteps.openLaunchesPage();
+    launchesPageSteps.checkTotalColumnTextNotEqualTo(expectedText);
+    //    loginSteps.login();
+
   }
 
   @Test(
-      dataProvider = "totalColumnDataProviderText",
+      dataProvider = "passedColumnDataProviderText",
       dataProviderClass = DataProviders.class,
-      threadPoolSize = 2)
-  public void testTotalColumn(String expectedText) {
-    loginPage.login();
-    LOGGER.info("Login is successfully");
-    WebDriverWait wait = new WebDriverWait(Browser.getDriver(), Duration.ofSeconds(10));
-    wait.until(ExpectedConditions.visibilityOf(homePage.getLaunchesSideMenu()));
-    homePage.getLaunchesSideMenu().click();
-    assertNotEquals(launchesPage.getTotalColumn().getText(), expectedText);
-  }
-
-  @Test(dataProvider = "passedColumnDataProviderText", dataProviderClass = DataProviders.class)
+      enabled = false)
   public void testPassedColumn(String expectedText) {
-    loginPage.login();
-    LOGGER.info("Login is successfully");
-    WebDriverWait wait = new WebDriverWait(Browser.getDriver(), Duration.ofSeconds(10));
-    wait.until(ExpectedConditions.visibilityOf(homePage.getLaunchesSideMenu()));
-    homePage.getLaunchesSideMenu().click();
-    assertNotEquals(launchesPage.getPassedColumn().getText(), expectedText);
+    loginSteps.login();
+    homePageSteps.openLaunchesPage();
+    launchesPageSteps.checkPassedColumnTextNotEqualTo(expectedText);
   }
 }

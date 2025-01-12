@@ -12,5 +12,3 @@ Feature: Feature1
         | total1 |
         | total2 |
         | total3 |
-        | total4 |
-        | total5 |

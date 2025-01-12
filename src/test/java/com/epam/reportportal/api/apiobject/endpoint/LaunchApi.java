@@ -1,9 +1,9 @@
-package com.epam.reportportal.api.apiobject;
+package com.epam.reportportal.api.apiobject.endpoint;
 
-import com.epam.reportportal.api.BaseApi;
-import com.epam.reportportal.api.Endpoints;
-import com.epam.reportportal.api.dto.LaunchDto;
-import com.epam.reportportal.api.responses.ContentResponse;
+import com.epam.reportportal.api.apiobject.BaseApi;
+import com.epam.reportportal.api.apiobject.Endpoints;
+import com.epam.reportportal.api.apiobject.dto.LaunchDto;
+import com.epam.reportportal.api.apiobject.responses.ContentResponse;
 import java.util.List;
 
 public class LaunchApi extends BaseApi {
@@ -19,7 +19,7 @@ public class LaunchApi extends BaseApi {
             .response()
             .as(ContentResponse.class);
 
-    List<LaunchDto> launchDtos = contentResponse.launchDtoList();
+    List<LaunchDto> launchDtos = contentResponse.getLaunchDtoList();
     return launchDtos;
   }
 
@@ -36,7 +36,7 @@ public class LaunchApi extends BaseApi {
 
     LaunchDto launchDto;
     try {
-      launchDto = contentResponse.launchDtoList().get(0);
+      launchDto = contentResponse.getLaunchDtoList().get(0);
       return launchDto;
     } catch (NullPointerException e) {
       return null;
@@ -59,7 +59,7 @@ public class LaunchApi extends BaseApi {
 
     //    int id = contentResponse.launchDtoList().get(0).id();
 
-    LaunchDto launchDto = contentResponse.launchDtoList().get(0);
+    LaunchDto launchDto = contentResponse.getLaunchDtoList().get(0);
     return launchDto;
   }
 

@@ -1,6 +1,6 @@
-package com.epam.reportportal.api;
+package com.epam.reportportal.api.apiobject;
 
-import static com.epam.reportportal.api.Endpoints.BASE_URL;
+import static com.epam.reportportal.api.apiobject.Endpoints.BASE_URL;
 import static io.restassured.RestAssured.given;
 
 import io.restassured.builder.RequestSpecBuilder;

@@ -1,8 +1,8 @@
 package com.epam.reportportal.api.step;
 
-import com.epam.reportportal.api.BaseApi;
-import com.epam.reportportal.api.apiobject.LaunchApi;
-import com.epam.reportportal.api.dto.LaunchDto;
+import com.epam.reportportal.api.apiobject.BaseApi;
+import com.epam.reportportal.api.apiobject.dto.LaunchDto;
+import com.epam.reportportal.api.apiobject.endpoint.LaunchApi;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,38 +12,38 @@ public class LaunchStep extends BaseApi {
 
   private static final Logger LOGGER = LogManager.getLogger(LaunchStep.class);
 
-  private LaunchApi launchApi;
+  private LaunchApi LaunchApi;
 
   public List<LaunchDto> getAllLunches() {
-    launchApi = new LaunchApi();
-    List<LaunchDto> list = launchApi.getAllLunches();
+    LaunchApi = new LaunchApi();
+    List<LaunchDto> list = LaunchApi.getAllLunches();
     Assert.assertNotNull(list);
     LOGGER.info("Received list of Launches");
     return list;
   }
 
   public int getNumberOfLunches() {
-    launchApi = new LaunchApi();
-    Assert.assertEquals(launchApi.getAllLunches().size(), 3);
-    return launchApi.getAllLunches().size();
+    LaunchApi = new LaunchApi();
+    Assert.assertEquals(LaunchApi.getAllLunches().size(), 3);
+    return LaunchApi.getAllLunches().size();
   }
 
   public LaunchDto getLaunchById(int id) {
-    launchApi = new LaunchApi();
-    LaunchDto launchDto = launchApi.getLaunchById(id);
+    LaunchApi = new LaunchApi();
+    LaunchDto launchDto = LaunchApi.getLaunchById(id);
     LOGGER.info("Received Launche by ID");
     return launchDto;
   }
 
   public int createLaunch(LaunchDto launchDto) {
-    launchApi = new LaunchApi();
-    int id = launchApi.createLaunch(launchDto).id();
+    LaunchApi = new LaunchApi();
+    int id = LaunchApi.createLaunch(launchDto).getId();
     return id;
   }
 
   public void deleteLaunchById(int id) {
-    launchApi = new LaunchApi();
-    launchApi.deleteLaunch(id);
+    LaunchApi = new LaunchApi();
+    LaunchApi.deleteLaunch(id);
     Assert.assertNull(getLaunchById(id));
   }
 }

@@ -1,14 +1,11 @@
 package com.epam.reportportal.ui.drivermanager.drivercreator;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class ChromeDriverCreator implements DriverCreator {
-  private static final Logger LOGGER = LogManager.getLogger(ChromeDriverCreator.class);
+public class ChromeDriver implements Driver {
 
   public WebDriver createDriver() {
     ChromeOptions options = new ChromeOptions();
@@ -18,7 +15,9 @@ public class ChromeDriverCreator implements DriverCreator {
     options.addArguments("--incognito");
     options.addArguments("--start-maximized");
 
-    LOGGER.info("Chrome options: {}", options);
-    return new ChromeDriver(options);
+    log.info("Chrome options: {}", options);
+    WebDriver webDriver = new org.openqa.selenium.chrome.ChromeDriver(options);
+    webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS); // implicit wait
+    return webDriver;
   }
 }
