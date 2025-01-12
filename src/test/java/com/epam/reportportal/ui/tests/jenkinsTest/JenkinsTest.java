@@ -32,7 +32,7 @@ public class JenkinsTest {
   //    return new ChromeDriver(options);
   //  }
 
-//  parameter for jenkins for different browsers
+  //  parameter for jenkins for different browsers
   @Parameters("Browser")
   @Test
   public void jenkinsTest(String browserName) throws InterruptedException {
