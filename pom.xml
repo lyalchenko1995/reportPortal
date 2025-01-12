@@ -179,5 +179,11 @@
                 <suite.xml.file>cucumberRunner.xml</suite.xml.file>
             </properties>
         </profile>
+        <profile>
+            <id>crossBrowser</id>
+            <properties>
+                <suite.xml.file>crossBrowserRunner.xml</suite.xml.file>
+            </properties>
+        </profile>
     </profiles>
 </project>

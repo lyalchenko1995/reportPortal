@@ -3,7 +3,7 @@ package com.epam.reportportal.ui.steps;
 import static com.epam.reportportal.ui.configurations.Configuration.BASE_URL;
 import static org.testng.Assert.assertNotEquals;
 
-import com.epam.reportportal.ui.drivermanager.Browser;
+import com.epam.reportportal.ui.drivermanager.BrowserFactory;
 import com.epam.reportportal.ui.pages.HomePage;
 import com.epam.reportportal.ui.pages.LaunchesPage;
 import com.epam.reportportal.ui.pages.LoginPage;
@@ -23,7 +23,7 @@ public class CucumberSteps extends BaseStep {
 
   @After("@Smoke")
   public void after() {
-    Browser.close();
+    BrowserFactory.close();
   }
 
   @Given("^open Report portal page$")
@@ -32,7 +32,7 @@ public class CucumberSteps extends BaseStep {
     loginPage.getLoginField().sendKeys("superadmin");
     loginPage.getPasswordField().sendKeys("erebus");
     loginPage.getLoginButton().click();
-    WebDriverWait wait = new WebDriverWait(Browser.getDriver(), Duration.ofSeconds(10));
+    WebDriverWait wait = new WebDriverWait(BrowserFactory.getDriver(), Duration.ofSeconds(10));
     wait.until(ExpectedConditions.visibilityOf(homePage.getLaunchesSideMenu()));
     log.info("Login is successfully");
   }

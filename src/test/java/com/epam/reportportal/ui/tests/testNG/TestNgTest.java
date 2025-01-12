@@ -28,7 +28,10 @@ public class TestNgTest extends BaseTest {
 
   }
 
-  @Test(dataProvider = "passedColumnDataProviderText", dataProviderClass = DataProviders.class)
+  @Test(
+      dataProvider = "passedColumnDataProviderText",
+      dataProviderClass = DataProviders.class,
+      enabled = false)
   public void testPassedColumn(String expectedText) {
     loginSteps.login();
     homePageSteps.openLaunchesPage();

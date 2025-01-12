@@ -29,7 +29,7 @@ public class JUnitTest {
   @BeforeEach
   public void setUp() {
     webDriver = createDriver();
-    webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);//implicit wait
+    webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS); // implicit wait
     loginPage = new LoginPage();
     homePage = new HomePage();
     launchesPage = new LaunchesPage();

@@ -1,6 +1,6 @@
 package com.epam.reportportal.ui.pages;
 
-import static com.epam.reportportal.ui.drivermanager.Browser.getDriver;
+import static com.epam.reportportal.ui.drivermanager.BrowserFactory.getDriver;
 
 import org.openqa.selenium.support.PageFactory;
 

@@ -41,4 +41,6 @@ public class LaunchDto {
     this.id = id;
     return this;
   }
+
+  //либо через отдельный Builder class и build метод
 }

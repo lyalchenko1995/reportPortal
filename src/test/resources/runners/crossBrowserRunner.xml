@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TestNG Suite" verbose="1" parallel="methods" thread-count="2">
+<suite name="TestNG Suite" verbose="1" parallel="tests" thread-count="1">
   <listeners>
     <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
     <listener class-name="com.epam.reportportal.ui.utils.TestListener"/>
   </listeners>
+
   <test name="test1">
+<!--    for cross browser-->
+<!--    <parameter name="browserName" value="chrome"></parameter>-->
     <classes>
       <class name="com.epam.reportportal.ui.tests.testNG.TestNgTest">
         <methods>
@@ -14,14 +17,15 @@
       </class>
     </classes>
   </test>
-
-<!--  <test name="test2">-->
-<!--    <classes>-->
-<!--      <class name="com.epam.reportportal.ui.tests.testNG.TestNgTest">-->
-<!--        <methods>-->
-<!--          <include name="testPassedColumn"/>-->
-<!--        </methods>-->
-<!--      </class>-->
-<!--    </classes>-->
-<!--  </test>-->
+  <test name="test2">
+<!--    for cross browser-->
+<!--    <parameter name="browserName" value="edge"></parameter>-->
+    <classes>
+      <class name="com.epam.reportportal.ui.tests.testNG.TestNgTest">
+        <methods>
+          <include name="testTotalColumn"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
 </suite>
