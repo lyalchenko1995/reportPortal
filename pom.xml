@@ -185,5 +185,11 @@
                 <suite.xml.file>crossBrowserRunner.xml</suite.xml.file>
             </properties>
         </profile>
+        <profile>
+            <id>jenkinsTest</id>
+            <properties>
+                <suite.xml.file>jenkinsTestRunner.xml</suite.xml.file>
+            </properties>
+        </profile>
     </profiles>
 </project>

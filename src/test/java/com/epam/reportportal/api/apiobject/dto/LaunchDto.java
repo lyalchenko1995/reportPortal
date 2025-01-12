@@ -42,5 +42,5 @@ public class LaunchDto {
     return this;
   }
 
-  //либо через отдельный Builder class и build метод
+  // либо через отдельный Builder class и build метод
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="JenkinsTest Suite" verbose="1" parallel="methods" thread-count="2">
+  <listeners>
+    <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    <listener class-name="com.epam.reportportal.ui.utils.TestListener"/>
+  </listeners>
+  <test name="test1">
+    <classes>
+      <class name="com.epam.reportportal.ui.tests.jenkinsTest.JenkinsTest"></class>
+    </classes>
+  </test>
+</suite>

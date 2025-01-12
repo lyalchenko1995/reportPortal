@@ -9,7 +9,8 @@ import org.slf4j.LoggerFactory;
 public abstract class BaseStep {
 
   protected static final Logger log = LoggerFactory.getLogger(BaseStep.class);
-  protected WebDriverWait wait = new WebDriverWait(BrowserFactory.getDriver(), Duration.ofSeconds(10));
+  protected WebDriverWait wait =
+      new WebDriverWait(BrowserFactory.getDriver(), Duration.ofSeconds(10));
 
   public static void openUrl(String url) {
     log.info("Opening URL: " + url);
