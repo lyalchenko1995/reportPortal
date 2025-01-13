@@ -199,5 +199,11 @@
                 <suite.xml.file>jenkinsTestRunner.xml</suite.xml.file>
             </properties>
         </profile>
+        <profile>
+            <id>jenkinsParameterizedTest</id>
+            <properties>
+                <suite.xml.file>jenkinsParameterizedTestRunner.xml</suite.xml.file>
+            </properties>
+        </profile>
     </profiles>
 </project>
